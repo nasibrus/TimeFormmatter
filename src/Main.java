@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.*;
 // Convert Function which takes in
 // 24hour time and convert it to
@@ -8,6 +9,7 @@ import java.util.*;
  */
 class Main {
     public static void main(String ar[]){
+        System.out.println("Select your 24H to format 12H");
         Scanner stri = new Scanner(System.in);
         // 24 hour format
         String str = stri.next();
@@ -24,9 +26,13 @@ class Main {
 
         // Finding out the Meridien of time
         // ie. AM or PM
-        String Meridien;
+        String Meridien = null;
         if (hh < 12) {
             Meridien = "AM";
+        }else if(hh>24){
+            System.out.println("Invalid Input...");
+            System.out.println("System exited by wrong input");
+            System.exit(1);
         }
         else
             Meridien = "PM";
